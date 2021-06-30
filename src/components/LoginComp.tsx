@@ -1,12 +1,36 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 
-const LoginComp: React.FC = (props) => (
-  <div>
-    <h2>Hello from login page</h2>
-    <br />
-    <Link to="/home">Navigate to Home Page</Link>
-  </div>
-);
+interface Props {
+  onLoginSubmit: (username: string, password: string) => any;
+  loggedIn: boolean;
+}
+
+const LoginComp = (props: Props) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  if (props.loggedIn) {
+    window.location.href = "/#/home";
+  }
+
+  const onLoginPressed = () => {
+    props.onLoginSubmit(username, password);
+  };
+
+  return (
+    <div>
+      <h2>Login</h2>
+      <form>
+        <label>Brukernavn: </label>
+        <input value={username} onChange={(e) => setUsername(e.target.value)} />
+        <br />
+        <label>Passord: </label>
+        <input value={password} onChange={(e) => setPassword(e.target.value)} />
+        <br />
+        <button onClick={onLoginPressed}> Login </button>
+      </form>
+    </div>
+  );
+};
 
 export default LoginComp;
