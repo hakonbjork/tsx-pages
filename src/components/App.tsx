@@ -1,15 +1,15 @@
 import React from "react";
 import { HashRouter, Switch, Route } from "react-router-dom";
-import PageA from "./PageA";
-import PageB from "./PageB";
+import LoginComp from "./LoginComp";
+import HomePage from "./HomePage";
 
 const App = () => {
   return (
     <div>
       <HashRouter>
         <Switch>
-          <Route exact={true} path="/" component={PageA} />
-          <Route path="/pageB" component={PageB} />
+          <Route exact={true} path="/" component={LoginComp} />
+          <Route path="/home" component={HomePage} />
         </Switch>
       </HashRouter>
     </div>
