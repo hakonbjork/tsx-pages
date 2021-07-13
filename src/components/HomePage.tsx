@@ -11,7 +11,7 @@ const HomePage = (props: Props) => {
 
   return (
     <div>
-      <h2>Hello from Home page</h2>
+      <h2>Hello from Home page bla bla</h2>
       <br />
       <button onClick={logOut}>Log out</button>
     </div>
